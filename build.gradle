@@ -48,6 +48,8 @@ tasks.injectTags.configure {
     outputClassName.set("${project.group}.${project.archives_base_name}.Tags")
 }
 
+apply from: 'dependencies.gradle'
+
 // Adds Access Transformer files to tasks
 if (project.use_access_transformer.toBoolean()) {
     for (File at : sourceSets.getByName("main").resources.files) {
