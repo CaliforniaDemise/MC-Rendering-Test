@@ -15,7 +15,6 @@ base {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
-    options.release = 8
     sourceCompatibility = 8
 }
 
@@ -40,12 +39,12 @@ minecraft {
     // Include and use dependencies' Access Transformer files
     useDependencyAccessTransformers = true
     
-    // injectedTags.put('MOD_ID', project.archives_base_name)
+    // injectedTags.put('MOD_ID', project.mod_id)
     // injectedTags.put('MOD_VERSION', project.version)
 }
 
 tasks.injectTags.configure {
-    outputClassName.set("${project.group}.${project.archives_base_name}.Tags")
+    outputClassName.set("${project.group}.${project.mod_id}.Tags")
 }
 
 apply from: 'dependencies.gradle'
