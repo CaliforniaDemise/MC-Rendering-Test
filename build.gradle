@@ -9,10 +9,14 @@ plugins {
 
 version = project.mod_version
 group = project.maven_group
-archivesBaseName = project.archives_base_name
+base {
+    archivesName = project.archives_base_name
+}
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+    options.release = 8
+    sourceCompatibility = 8
 }
 
 configurations {
@@ -21,12 +25,8 @@ configurations {
 }
 
 minecraft {
-    mcVersion = '1.12.2'
+    mcVersion = '1.12.2' // stable-39
 
-    // MCP Mappings
-    mcpMappingChannel = 'stable'
-    mcpMappingVersion = '39'
-    
     // Set username here, the UUID will be looked up automatically
     username = 'Developer'
     
